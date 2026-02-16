@@ -162,8 +162,7 @@
             height: 100vh;
             display: grid;
             grid-template-columns: 1fr;
-            padding-top: 80px;
-            /* Space for fixed header */
+            /* Removed padding-top for header */
         }
 
         @media (min-width: 900px) {
@@ -440,18 +439,15 @@
             /* --- MOBILE OPTIMIZATION --- */
             @media (max-width: 768px) {
 
-                /* Header */
-                header {
-                    padding: 1rem 1.5rem;
-                    flex-wrap: wrap;
-                    gap: 1rem;
-                    justify-content: center;
+                /* Header/Floating Elements */
+                .floating-cart {
+                    right: 1.5rem;
+                    top: 1.5rem;
                 }
 
-                .nav-links {
-                    gap: 1rem;
-                    display: none;
-                    /* Hide nav links on very small screens or make hamburger later */
+                .logo-img {
+                    height: 80px;
+                    margin: 0 auto 2rem auto;
                 }
 
                 /* Show a simplified menu or just logo center */
@@ -550,19 +546,17 @@
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="./veta_real_logo.png" alt="VETA REAL" class="logo-img">
-        <div style="font-size: 1.1rem; color: var(--brand-dark); cursor: pointer;">
-            🛒 (0)
-        </div>
-    </header>
+    <!-- Floating Cart -->
+    <div class="floating-cart">
+        🛒 (0)
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-split">
         <div class="hero-text fade-in aurora-container">
             <div class="aurora-bg"></div>
             <div style="position: relative; z-index: 1;">
+                <img src="./veta_real_logo.png" alt="VETA REAL" class="logo-img">
                 <p class="text-small" style="margin-bottom: 1rem; color: var(--gold);">El Secreto de las Montañas de
                     Muzo</p>
                 <h1 style="font-size: 5rem; line-height: 1.05; margin-bottom: 1.5rem;">
