@@ -197,35 +197,43 @@
             position: relative;
         }
 
-        /* --- TRUST BAR --- */
-        /* --- TRUST BAR --- */
+        /* --- TRUST BAR (Marquee) --- */
         .trust-bar {
             background-color: white;
-            padding: 3rem 0;
-            /* More breathing room */
+            padding: 2.5rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            align-items: center;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            /* Increased size */
-            color: var(--brand-dark);
-            /* Darker for visibility */
-            letter-spacing: 1.5px;
-            font-weight: 500;
+            overflow: hidden;
+            /* Hide overflow for marquee */
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .trust-track {
+            display: inline-flex;
+            gap: 6rem;
+            /* Space between items */
+            animation: scroll 30s linear infinite;
+            /* Smooth scrolling */
+            padding-left: 6rem;
+            /* Initial offset */
         }
 
         .trust-item {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.8rem;
             opacity: 1;
-            /* Fixed visibility issue */
             transition: all 0.3s ease;
             padding: 10px 20px;
             border-radius: 30px;
+
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--brand-dark);
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            flex-shrink: 0;
+            /* Prevent shrinking */
         }
 
         .trust-item span {
@@ -236,7 +244,6 @@
 
         .trust-item:hover {
             background: rgba(46, 111, 86, 0.05);
-            /* Subtle green tint on hover */
             transform: translateY(-3px);
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -244,7 +251,23 @@
 
         .trust-item:hover span {
             transform: rotate(90deg) scale(1.1);
-            /* Interactive icon */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+
+            /* Move half width (original set) */
+        }
+
+        /* Pause on hover for readability */
+        .trust-bar:hover .trust-track {
+            animation-play-state: paused;
         }
 
 
@@ -616,10 +639,21 @@
     </section>
 
     <!-- 10. Credibility & 11. Proof -->
+    <!-- 10. Credibility & 11. Proof (Marquee) -->
     <div class="trust-bar fade-in">
-        <div class="trust-item"><span>✦</span> 4ta Generación de Mineros</div>
-        <div class="trust-item"><span>✦</span> Certificación GIA & CDTEC</div>
-        <div class="trust-item"><span>✦</span> Trato Directo: Mina a Cliente</div>
+        <div class="trust-track">
+            <!-- Original Set -->
+            <div class="trust-item"><span>✦</span> 4ta Generación de Mineros</div>
+            <div class="trust-item"><span>✦</span> Certificación GIA & CDTEC</div>
+            <div class="trust-item"><span>✦</span> Trato Directo: Mina a Cliente</div>
+            <div class="trust-item"><span>✦</span> Envíos Globales Asegurados</div>
+
+            <!-- Duplicate Set for Infinite Loop -->
+            <div class="trust-item"><span>✦</span> 4ta Generación de Mineros</div>
+            <div class="trust-item"><span>✦</span> Certificación GIA & CDTEC</div>
+            <div class="trust-item"><span>✦</span> Trato Directo: Mina a Cliente</div>
+            <div class="trust-item"><span>✦</span> Envíos Globales Asegurados</div>
+        </div>
     </div>
 
     <!-- NEW SECTION: 5. Define Problem, 6. Agitate, 7. Which Means You -->
