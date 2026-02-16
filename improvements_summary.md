@@ -5,27 +5,23 @@ Using the **UI/UX Pro Max** skill and our competitive research data, we have upg
 
 ## Key Improvements
 
-### 1. Rebranding & Localization
-*   **Brand Identity**: Renamed to **"VETA REAL"** (Royal Vein) to evoke the deep mining heritage of Colombia. Created a custom minimalist logo.
+### 1. Strategic Copywriting Overhaul (New)
+*   **Meta Ads Framework**: Rewrote the entire site narrative using a 17-point "Soft Sell" structure optimized for compliance.
+*   **Curiosity Headline**: Changed "La Pureza..." to *"El Secreto de las Montañas de Muzo"* to increase CTR.
+*   **Problem/Agitation**: Added a section addressing the fear of fake/treated emeralds (*"¿Es realmente una Esmeralda Natural?"*).
+*   **Credibility**: Expanded the "Trust Bar" to include specific authority markers (4th Generation Miners).
+*   **Offers & Guarantees**: Clarity on bonuses (Luxury Case, Lifetime Cleaning) and a lifetime authenticity guarantee.
+
+### 2. Rebranding & Localization
+*   **Brand Identity**: Renamed to **"VETA REAL"** (Royal Vein).
 *   **Spanish Localization**: Fully translated the interface to Spanish.
 
-### 2. Experimental Visuals (New)
-*   **Aurora Animation**: Incorporated a subtle, moving "Aurora" background effect behind the Hero text.
-    *   *Tech Note*: Ported from React/Tailwind to pure CSS to work within the current static environment.
-    *   *Aesthetic*: Custom-tuned with Emerald Green and Antique Gold gradients to match the brand palette.
+### 3. Experimental Visuals
+*   **Aurora Animation**: Incorporated a subtle, moving "Aurora" background effect behind the Hero text (CSS-only port).
 
-### 3. "Tech-Transparent" Trust Signals
-*   **Trust Bar**: Added a dedicated section immediately below the Hero with high-level certifications.
-*   **Origin Tags**: Product cards now display the specific mine origin (e.g., "Muzo, COL", "Chivor, COL") directly on the image.
-
-### 4. "Heritage-Narrative" Aesthetics
-*   **Refined Palette**: Shifted from a stark white background to "Gallery White" (`#F9F8F4`) for a softer, more luxurious feel.
-*   **Typography**: Enforced `Cormorant Garamond` for headings.
-*   **Interactive Cards**: Hover effects now reveal a clean white detail pane with "Vista Rápida" buttons.
-
-### 5. Integrated Education ("The Jardin")
-*   **New Module**: Inserted a dark-mode content block explaining "Jardín" (inclusions).
-*   **Visuals**: Replaced stock imagery with a generated cinematic macro shot of a raw emerald crystal.
+### 4. "Tech-Transparent" Trust Signals
+*   **Origin Tags**: Product cards display specific mine origin (Muzo, Chivor).
+*   **Integrated Education**: Dark-mode section explaining "Jardín" (inclusions) as a proof of authenticity.
 
 ## Next Steps
 *   **Mobile Testing**: Verify the double-column layout on smaller screens.
