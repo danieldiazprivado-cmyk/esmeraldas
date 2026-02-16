@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETA REAL | Esmeraldas Colombianas y Alta Joyería</title>
+
+    <!-- Fuentes Google: Mantengo la elección editorial pero ajustada a su estilo limpio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* --- ALPINE GREEN PALETTE --- */
+            --brand-dark: #0E3A2F;
+            /* Deep Emerald Brand Color */
+            --brand-green: #2E6F56;
+            /* Muzo Green Accent */
+            --gold: #BFA05F;
+            /* Antique Gold */
+
+            --bg-body: #F9F8F4;
+            /* "Gallery White" (Warm Off-White) */
+            --bg-light: #EFEFEF;
+            /* Subtle Contrast */
+
+            --text-main: #1C2833;
+            /* Charcoal, softer than black */
+            --text-muted: #566573;
+            /* Steel Grey */
+
+            /* Typography */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-accent: 'Cormorant Garamond', serif;
+
+            /* Layout */
+            --container: 1320px;
+            --gap: 32px;
+            /* Más aire entre elementos */
+
+            /* Animations */
+            --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- UI ELEMENTS --- */
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: var(--brand-dark);
+            color: white;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid var(--brand-dark);
+            transition: all 0.4s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--brand-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--brand-dark);
+            color: var(--brand-dark);
+        }
+
+        /* --- TYPOGRAPHY UTILS --- */
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-head);
+            font-weight: 400;
+            color: var(--brand-dark);
+        }
+
+        .serif-italic {
+            font-family: var(--font-accent);
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .text-small {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* --- HEADER (Minimalist) --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-img {
+            height: 40px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* --- HERO SPLIT --- */
+        .hero-split {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding-top: 80px;
+            /* Space for fixed header */
+        }
+
+        @media (min-width: 900px) {
+            .hero-split {
+                grid-template-columns: 45% 55%;
+            }
+        }
+
+        .hero-text {
+            padding: 4rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg-body);
+        }
+
+        .hero-image {
+            background: url('hero_emerald_ring.png') center/cover no-repeat;
+            position: relative;
+        }
+
+        /* --- TRUST BAR --- */
+        .trust-bar {
+            background-color: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .trust-item:hover {
+            opacity: 1;
+            color: var(--brand-dark);
+            cursor: pointer;
+        }
+
+
+        /* --- EDUCATION SECTION (Jardin) --- */
+        .education-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--brand-dark);
+            color: white;
+            overflow: hidden;
+            margin: 6rem 0;
+        }
+
+        .edu-text {
+            padding: 6rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .edu-img {
+            background: url('hero_emerald_texture.png') center/cover;
+            min-height: 500px;
+        }
+
+
+        /* --- GRID GALLERY (Clean) --- */
+        .section-title {
+            text-align: center;
+            margin: 6rem 0 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            /* Increased gap for cleaner look */
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .product-card {
+            position: relative;
+            background: #FFFFFF;
+            aspect-ratio: 1 / 1.1;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            /* Subtle depth */
+            transition: all 0.4s var(--ease-out);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .tag-origin {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-dark);
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out);
+        }
+
+        .product-card:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Minimal Overlay */
+        .card-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: white;
+            color: var(--brand-dark);
+            transform: translateY(100%);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .product-card:hover .card-details {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-quick {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--brand-dark);
+            align-self: flex-start;
+            padding-bottom: 2px;
+            margin-top: 0.5rem;
+        }
+
+        /* --- PRODUCT FEATURE (Editorial) --- */
+        .feature-block {
+            max-width: var(--container);
+            margin: 8rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .feature-img-wrapper {
+            position: relative;
+        }
+
+        /* The "Alpine" Frame Effect */
+        .feature-img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--gold);
+            z-index: -1;
+        }
+
+        .specs-list {
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 1.5rem;
+            column-gap: 1rem;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            font-family: var(--font-head);
+            color: var(--brand-dark);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--brand-dark);
+            color: white;
+            padding: 5rem 2rem;
+            margin-top: 6rem;
+            text-align: center;
+        }
+
+        .footer-nav {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.8s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- AURORA ANIMATION (CSS Port) --- */
+        @keyframes aurora {
+            from {
+                background-position: 50% 50%, 50% 50%;
+            }
+
+            to {
+                background-position: 350% 50%, 350% 50%;
+            }
+        }
+
+        .aurora-container {
+            position: relative;
+            overflow: hidden;
+            /* Emerald & Gold Theme Gradients */
+            --white-gradient: repeating-linear-gradient(100deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 7%, transparent 10%, transparent 12%, rgba(255, 255, 255, 0.8) 16%);
+            --aurora-emerald: repeating-linear-gradient(100deg, var(--brand-green) 10%, var(--gold) 15%, #34D399 20%, #A7F3D0 25%, var(--brand-dark) 30%);
+            z-index: 0;
+        }
+
+        .aurora-bg {
+            position: absolute;
+            inset: -10px;
+            opacity: 0.15;
+            /* Subtle texture */
+            pointer-events: none;
+            background-image: var(--white-gradient), var(--aurora-emerald);
+            background-size: 300% 200%;
+            background-position: 50% 50%, 50% 50%;
+            filter: blur(10px);
+            animation: aurora 60s linear infinite;
+            z-index: -1;
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="veta_real_logo.png" alt="VETA REAL" class="logo-img">
+        <nav class="nav-links">
+            <a href="#">Esmeraldas</a>
+            <a href="#">Joyería</a>
+            <a href="#">Muzo & Chivor</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div style="font-size: 0.9rem;">
+            🛒 (0)
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-split">
+        <div class="hero-text fade-in aurora-container">
+            <div class="aurora-bg"></div>
+            <div style="position: relative; z-index: 1;">
+                <p class="text-small" style="margin-bottom: 1rem; color: var(--gold);">Colección Exclusiva 2026</p>
+                <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">
+                    La Pureza de <br>Colombia
+                </h1>
+                <p style="color: var(--text-muted); margin-bottom: 2.5rem; max-width: 400px;">
+                    Esmeraldas seleccionadas directamente de las minas más prestigiosas del mundo. Certificadas y
+                    éticamente
+                    obtenidas.
+                </p>
+                <div>
+                    <a href="#" class="btn">Ver Colección</a>
+                    <a href="#" class="btn btn-outline" style="margin-left: 1rem;">Nuestra Historia</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image fade-in">
+            <!-- La imagen de fondo hace el trabajo aquí -->
+        </div>
+    </section>
+
+    <!-- Trust Bar (Social Proof) -->
+    <div class="trust-bar fade-in">
+        <div class="trust-item"><span>✦</span> Certificado por GIA</div>
+        <div class="trust-item"><span>✦</span> Origen Ético</div>
+        <div class="trust-item"><span>✦</span> Origen Colombiano Garantizado</div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="section-title fade-in">
+        <div class="section-title fade-in">
+            <span class="serif-italic">Selección Curada</span>
+            <h2 style="font-size: 2.5rem; margin-top: 0.5rem;">Nuevas Adiciones</h2>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <div class="product-card fade-in">
+                <span class="tag-origin">Muzo, COL</span>
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=2670&auto=format&fit=crop"
+                    alt="Collar Esmeralda">
+                <div class="card-details">
+                    <h3>Collar Gota Real</h3>
+                    <p>$12,500 USD</p>
+                    <div class="btn-quick">Vista Rápida</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="product-card fade-in">
+                <span class="tag-origin">Chivor, COL</span>
+                <img src="https://images.unsplash.com/photo-1573408301185-9146fe635d8d?q=80&w=2688&auto=format&fit=crop"
+                    alt="Anillo Solitario">
+                <div class="card-details">
+                    <h3>Solitario Muzo</h3>
+                    <p>$8,200 USD</p>
+                    <div class="btn-quick">Quick View</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="product-card fade-in">
+                <span class="tag-origin">Coscuez, COL</span>
+                <img src="https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=2670&auto=format&fit=crop"
+                    alt="Esmeralda en Bruto">
+                <div class="card-details">
+                    <h3>Raw Emerald Specimen</h3>
+                    <p>Consultar Precio</p>
+                    <div class="btn-quick">Enquire</div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="product-card fade-in">
+                <span class="tag-origin">Muzo, COL</span>
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=2187&auto=format&fit=crop"
+                    alt="Pendientes">
+                <div class="card-details">
+                    <h3>Pendientes Chivor</h3>
+                    <p>$5,400 USD</p>
+                    <div class="btn-quick">Quick View</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section (Trend #3: Integrated Education) -->
+        <section class="education-split fade-in">
+            <div class="edu-text">
+                <span class="text-small" style="color: var(--gold); margin-bottom: 1rem;">La Guía del Conocedor</span>
+                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;">Entendiendo el "Jardín"</h2>
+                <p style="opacity: 0.8; margin-bottom: 2rem; max-width: 450px;">
+                    A diferencia de los diamantes, las esmeraldas son valoradas por sus inclusiones. Estas huellas
+                    naturales, conocidas como "jardín", prueban el origen natural y el carácter único de la gema.
+                </p>
+                <a href="#" class="btn btn-outline"
+                    style="border-color: rgba(255,255,255,0.3); color: white; align-self: flex-start;">Aprender
+                    Gemología</a>
+            </div>
+            <div class="edu-img"></div>
+        </section>
+
+        <!-- Editorial Product Feature -->
+        <div class="feature-block fade-in">
+            <div class="feature-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?q=80&w=2669&auto=format&fit=crop"
+                    style="width: 100%; display: block;" alt="Emerald Close up">
+            </div>
+            <div class="feature-info">
+                <span class="text-small" style="color: var(--brand-green);">Pieza Única</span>
+                <h2 style="font-size: 3rem; margin: 1rem 0;">Esmeralda "Veta Real"</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                    Esta gema de 4.5 quilates representa la quintaesencia del color "Veta Real Green". Su saturación
+                    intensa y
+                    su claridad cristalina son un testimonio de su origen en las vetas profundas de Muzo.
+                </p>
+
+                <div class="specs-list">
+                    <div>
+                        <div class="spec-label">Peso</div>
+                        <div class="spec-value">4.52 ct</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Corte</div>
+                        <div class="spec-value">Octagonal Step</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Origen</div>
+                        <div class="spec-value">Muzo, Colombia</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Certificado</div>
+                        <div class="spec-value">GIA & CDTEC</div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn">Solicitar Información</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <h2 style="color: white; font-size: 2rem;">VETA REAL</h2>
+            <div class="footer-nav">
+                <a href="#">Colección</a>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">Envíos y Devoluciones</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 2rem;">
+                &copy; 2026 Veta Real. Bogotá - New York.
+            </p>
+        </footer>
+
+        <script>
+            // Simple Intersection Observer for Fade In
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        </script>
+
+</body>
+
+</html>
