@@ -515,16 +515,26 @@
                 /* Typography */
                 h1 {
                     font-size: 2.5rem !important;
+                    /* Slightly reduced for safety */
+                    word-wrap: break-word;
+                    /* Prevent cutoff */
+                    hyphens: auto;
+                    padding: 0 10px;
+                    /* Ensure visual padding */
                 }
 
                 h2 {
                     font-size: 2rem !important;
+                    word-wrap: break-word;
                 }
 
                 /* Hero */
                 .hero-text {
-                    padding: 6rem 2rem 4rem 2rem;
+                    padding: 6rem 1.5rem 4rem 1.5rem;
+                    /* Reduced side padding */
                     text-align: center;
+                    overflow: hidden;
+                    /* Prevent scrollbar if animation goes wild */
                 }
 
                 .hero-text p {
