@@ -561,21 +561,31 @@
                 /* .hero-title handled by global clamp() */
 
                 /* Hero */
-                .hero-text {
-                    padding: 6rem 1.5rem 4rem 1.5rem;
-                    /* Reduced side padding */
-                    text-align: center;
-                    overflow: hidden;
-                    /* Prevent scrollbar if animation goes wild */
+                /* Fix: Allow container to grow beyond 100vh on mobile */
+                .hero-split {
+                    height: auto !important;
+                    min-height: 100vh;
+                    display: flex !important;
+                    flex-direction: column;
                 }
 
-                .hero-text p {
-                    margin-left: auto;
-                    margin-right: auto;
+                .hero-text {
+                    padding: 6rem 1.5rem 4rem 1.5rem;
+                    text-align: center;
+                    overflow: visible;
+                    /* Allow content to be seen */
+                    order: 1;
+                    /* Text first */
                 }
 
                 .hero-image {
-                    min-height: 40vh;
+                    min-height: 50vh;
+                    /* Give image substantial height */
+                    width: 100%;
+                    order: 2;
+                    /* Image second */
+                    background-attachment: scroll;
+                    /* Fix for some mobile browsers */
                 }
 
                 /* Trust Bar */
