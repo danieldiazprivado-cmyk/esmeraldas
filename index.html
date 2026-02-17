@@ -571,12 +571,14 @@
                 /* .hero-title handled by global clamp() */
 
                 /* Hero */
+                /* Hero */
                 /* Fix: Allow container to grow beyond 100vh on mobile */
                 .hero-split {
                     height: auto !important;
                     min-height: 100vh;
                     display: flex !important;
                     flex-direction: column;
+                    position: relative;
                 }
 
                 .hero-text {
@@ -586,6 +588,24 @@
                     /* Allow content to be seen */
                     order: 1;
                     /* Text first */
+                    position: relative;
+                    z-index: 10;
+                    /* Ensure text is ABOVE image */
+                    background: transparent;
+                    /* Remove solid background if it was hiding things, or keep if needed. keeping transparent to be safe with aurora */
+                }
+
+                .hero-image {
+                    min-height: 50vh;
+                    /* Give image substantial height */
+                    width: 100%;
+                    height: auto;
+                    /* Allow natural height */
+                    order: 2;
+                    /* Image second */
+                    z-index: 1;
+                    margin-top: -2rem;
+                    /* Slight overlap for editorial look, but text is on top */
                 }
 
                 .hero-image {
