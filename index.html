@@ -460,6 +460,15 @@
             transform: translateY(0);
         }
 
+        /* --- TYPOGRAPHY UTILS --- */
+        .hero-title {
+            font-size: 5rem;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            font-family: inherit;
+            /* Use default serif */
+        }
+
         /* --- AURORA ANIMATION (CSS Port) --- */
         @keyframes aurora {
             from {
@@ -530,6 +539,15 @@
                 h2 {
                     font-size: 2rem !important;
                     word-wrap: break-word;
+                }
+
+                /* Mobile Title Override */
+                .hero-title {
+                    font-size: 2.2rem !important;
+                    line-height: 1.1;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    padding: 0 10px;
                 }
 
                 /* Hero */
@@ -633,7 +651,7 @@
                 <img src="./veta_real_logo_transparent.png" alt="VETA REAL" class="logo-img">
                 <p class="text-small" style="margin-bottom: 1rem; color: var(--gold);">El Secreto de las Montañas de
                     Muzo</p>
-                <h1 style="font-size: 5rem; line-height: 1.05; margin-bottom: 1.5rem;">
+                <h1 class="hero-title">
                     El Legado<br>de Colombia
                 </h1>
                 <p style="color: var(--text-muted); margin-bottom: 2.5rem; max-width: 400px;">
