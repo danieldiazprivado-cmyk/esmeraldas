@@ -200,8 +200,18 @@
         }
 
         .hero-image {
-            background: url('./hero_emerald_ring.png') center/cover no-repeat;
+            /* background: url('./hero_emerald_ring.png') center/cover no-repeat; DETACHED for Mobile Stability */
             position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* --- TRUST BAR (Marquee) --- */
@@ -584,8 +594,6 @@
                     width: 100%;
                     order: 2;
                     /* Image second */
-                    background-attachment: scroll;
-                    /* Fix for some mobile browsers */
                 }
 
                 /* Trust Bar */
@@ -686,7 +694,7 @@
             </div>
         </div>
         <div class="hero-image fade-in">
-            <!-- La imagen de fondo hace el trabajo aquí -->
+            <img src="./hero_emerald_ring.png" alt="Esmeralda Colombiana de Muzo">
         </div>
     </section>
 
